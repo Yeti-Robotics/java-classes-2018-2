@@ -22,5 +22,16 @@ public class Game {
                 System.out.println("You both lose");
             }
         }
+        
+        System.out.println(player1.name + " scored: " + player1.score);
+        System.out.println(player2.name + " scored: " + player2.score);
+        
+        if (player1.score > player2.score) {
+        		System.out.println(player1.name + " wins");
+        } else if (player2.score > player1.score) {
+        		System.out.println(player2.name + " wins");
+        } else {
+            System.out.println("You both lose it was a draw");
+        }
     }
 }
