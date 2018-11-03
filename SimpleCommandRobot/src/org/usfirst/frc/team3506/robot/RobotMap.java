@@ -23,4 +23,15 @@ public class RobotMap {
 
     public static final int LEFT_JOYSTICK_PORT = 0;
     public static final int RIGHT_JOYSTICK_PORT = 1;
+    public static final int SECONDARY_JOYSTICK_PORT = 2;
+    
+    public static final int[] GEAR_SHIFT_SOLENOID = { 6, 7 };
+    
+    public static final int WRIST_TALON_PORT = 2;
+    
+    public static final int LEFT_ELEVATOR_TALON_PORT = 5;
+    public static final int RIGHT_ELEVATOR_TALON_PORT = 6;
+    public static final double ELEVATOR_LIFT_POWER = 1;
+    public static final double ELEVATOR_LOWER_POWER = -0.75;
+    public static final double ELEVATOR_STOP_POWER = 0;
 }

@@ -8,6 +8,10 @@
 package org.usfirst.frc.team3506.robot;
 
 import org.usfirst.frc.team3506.robot.commands.DriveForwardCommand;
+import org.usfirst.frc.team3506.robot.commands.LiftElevatorCommand;
+import org.usfirst.frc.team3506.robot.commands.LowerElevatorCommand;
+import org.usfirst.frc.team3506.robot.commands.ShiftDownCommand;
+import org.usfirst.frc.team3506.robot.commands.ShiftUpCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -17,14 +21,28 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	private Joystick leftJoystick, rightJoystick;
+	private Joystick leftJoystick, rightJoystick, secondaryJoystick;
 	
 	public OI() {
 	    leftJoystick = new Joystick(RobotMap.LEFT_JOYSTICK_PORT);
 	    rightJoystick = new Joystick(RobotMap.RIGHT_JOYSTICK_PORT);
+	    secondaryJoystick = new Joystick(RobotMap.SECONDARY_JOYSTICK_PORT);
 	    
+	    JoystickButton left1 = new JoystickButton(leftJoystick, 1);
 	    JoystickButton left2 = new JoystickButton(leftJoystick, 2);
+	    
+	    JoystickButton right1 = new JoystickButton(rightJoystick, 1);
+	    
+	    JoystickButton secondary3 = new JoystickButton(secondaryJoystick, 3);
+	    JoystickButton secondary5 = new JoystickButton(secondaryJoystick, 5);
+	    
+	    left1.whenPressed(new ShiftDownCommand());
 	    left2.whenPressed(new DriveForwardCommand(0.5, 0.5, 1.5));
+	    
+	    right1.whenPressed(new ShiftUpCommand());
+	    
+	    secondary3.whileHeld(new LowerElevatorCommand());
+	    secondary5.whileHeld(new LiftElevatorCommand());
 	}
 	
 	public double getLeftY() {
@@ -33,5 +51,9 @@ public class OI {
 	
 	public double getRightY() {
 	    return -rightJoystick.getY();
+	}
+	
+	public double getSecondaryY() {
+	    return -secondaryJoystick.getY();
 	}
 }

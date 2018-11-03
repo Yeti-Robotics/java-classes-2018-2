@@ -11,7 +11,7 @@ public class DriveRectangleCommandGroup extends CommandGroup {
         addSequential(new DriveForwardCommand(0.5, 0.5, 1.5));
         addSequential(new DriveForwardCommand(0.4, -0.4, 0.5));
         
-
+        
         addSequential(new DriveForwardCommand(0.5, 0.5, 1.5));
         addSequential(new DriveForwardCommand(0.4, -0.4, 0.5));
         
