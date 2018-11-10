@@ -8,10 +8,13 @@
 package org.usfirst.frc.team3506.robot;
 
 import org.usfirst.frc.team3506.robot.commands.DriveForwardCommand;
+import org.usfirst.frc.team3506.robot.commands.IntakeFlywheelsCommand;
 import org.usfirst.frc.team3506.robot.commands.LiftElevatorCommand;
 import org.usfirst.frc.team3506.robot.commands.LowerElevatorCommand;
+import org.usfirst.frc.team3506.robot.commands.OuttakeFlywheelsCommand;
 import org.usfirst.frc.team3506.robot.commands.ShiftDownCommand;
 import org.usfirst.frc.team3506.robot.commands.ShiftUpCommand;
+import org.usfirst.frc.team3506.robot.commands.ToggleClampCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -33,6 +36,9 @@ public class OI {
 	    
 	    JoystickButton right1 = new JoystickButton(rightJoystick, 1);
 	    
+	    JoystickButton secondary1 = new JoystickButton(secondaryJoystick, 1);
+	    JoystickButton secondary2 = new JoystickButton(secondaryJoystick, 2);
+	    JoystickButton secondary4 = new JoystickButton(secondaryJoystick, 4);
 	    JoystickButton secondary3 = new JoystickButton(secondaryJoystick, 3);
 	    JoystickButton secondary5 = new JoystickButton(secondaryJoystick, 5);
 	    
@@ -41,7 +47,10 @@ public class OI {
 	    
 	    right1.whenPressed(new ShiftUpCommand());
 	    
+	    secondary1.whileHeld(new IntakeFlywheelsCommand());
+	    secondary2.whileHeld(new OuttakeFlywheelsCommand());
 	    secondary3.whileHeld(new LowerElevatorCommand());
+	    secondary4.whenPressed(new ToggleClampCommand());
 	    secondary5.whileHeld(new LiftElevatorCommand());
 	}
 	
@@ -49,8 +58,16 @@ public class OI {
 	    return -leftJoystick.getY();
 	}
 	
+	public double getLeftX() {
+	    return leftJoystick.getX();
+	}
+	
 	public double getRightY() {
 	    return -rightJoystick.getY();
+	}
+	
+	public double getRightX() {
+	    return rightJoystick.getX();
 	}
 	
 	public double getSecondaryY() {

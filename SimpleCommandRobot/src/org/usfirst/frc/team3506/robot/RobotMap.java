@@ -34,4 +34,9 @@ public class RobotMap {
     public static final double ELEVATOR_LIFT_POWER = 1;
     public static final double ELEVATOR_LOWER_POWER = -0.75;
     public static final double ELEVATOR_STOP_POWER = 0;
+    
+    public static final int LEFT_FLYWHEEL_PORT = 3;
+    public static final int RIGHT_FLYWHEEL_PORT = 4;
+    
+    public static final int[] CLAMP_CUBE_SOLENOID_PORTS = { 0, 1 };
 }

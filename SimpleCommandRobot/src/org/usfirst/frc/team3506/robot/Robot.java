@@ -7,8 +7,10 @@
 
 package org.usfirst.frc.team3506.robot;
 
+import org.usfirst.frc.team3506.robot.subsystems.ClampSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.DrivetrainSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.ElevatorSubsystem;
+import org.usfirst.frc.team3506.robot.subsystems.FlywheelSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.GearShiftSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.WristSubsystem;
 
@@ -31,6 +33,8 @@ public class Robot extends TimedRobot {
 	public static GearShiftSubsystem gearShiftSubsystem;
 	public static WristSubsystem wristSubsystem;
 	public static ElevatorSubsystem elevatorSubsystem;
+	public static FlywheelSubsystem flywheelSubsystem;
+	public static ClampSubsystem clampSubsystem;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -41,6 +45,8 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
+	    clampSubsystem = new ClampSubsystem();
+	    flywheelSubsystem = new FlywheelSubsystem();
 	    elevatorSubsystem = new ElevatorSubsystem();
 	    wristSubsystem = new WristSubsystem();
 	    gearShiftSubsystem = new GearShiftSubsystem();
